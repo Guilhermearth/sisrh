@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FuncionarioController;
+use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\CargoController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,8 +26,10 @@ Route::get('/funcionarios', [FuncionarioController::class, 'index'])->name('func
 
 Route::get('/funcionarios/create', [FuncionarioController::class, 'create'])->name('funcionarios.create');
 
-Route::get('/cargos/index', [CargoController::class, 'index'])->name('cargos.index');
+Route::get('/cargos', [CargoController::class, 'index'])->name('cargos.index');
 
 Route::get('/cargos/create', [CargoController::class, 'create'])->name('cargos.create');
 
+Route::get('/departamentos', [DepartamentoController::class, 'index'])->name('departamentos.index');
 
+Route::get('/departamentos/create', [DepartamentoController::class, 'create'])->name('departamentos.create');

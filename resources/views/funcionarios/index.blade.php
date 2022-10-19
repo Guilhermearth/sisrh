@@ -20,14 +20,13 @@
         <tbody>
             @foreach ($funcionarios as $funcionario)
 
-            
             <tr>
-                <td>{{$funcionario->id}}</td>
-                <td><img src="/images/funcionarios/{{ $funcionario->foto}}" alt="{{$funcionario->nome}}" width="100"></td>
-                <td>{{$funcionario->nome}}</td>
-                <td>{{$funcionario->cargo->descricao}}</td>
-                <td>{{$funcionario->departamento->nome}}</td>
-                <td></td>
+                <td class="align-middle">{{$funcionario->id}}</td>
+                <td class="align-middle"><img src="/images/funcionarios/{{ $funcionario->foto}}" alt="{{$funcionario->nome}}" width="100"></td>
+                <td class="align-middle">{{$funcionario->nome}}</td>
+                <td class="align-middle">{{$funcionario->cargo->descricao}}</td>
+                <td class="align-middle">{{$funcionario->departamento->nome}}</td>
+                <td class="align-middle"><button type="button" class="btn btn-primary m-2"><i class="bi bi-pen"></i></button><button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button></i></td>
             </tr>
             @endforeach
         </tbody>
