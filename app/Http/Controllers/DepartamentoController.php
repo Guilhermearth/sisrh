@@ -2,13 +2,15 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\departamento;
 use Illuminate\Http\Request;
 
 class DepartamentoController extends Controller
 {
     public function index()
     {
-        return view('departamentos.index');
+        $departamentos = departamento::all();
+        return view('departamentos.index', compact('departamentos'));
     }
 
     public function create()

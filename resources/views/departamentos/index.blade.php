@@ -17,9 +17,9 @@
         <tbody>
             @foreach ($departamentos as $departamento)
             <tr>
-                <td>{{$departamento->id}}</td>
-                <td>{{$departamento->nome}}</td>
-                <td><button type="button" class="btn btn-success m-2"><i class="bi bi-person-fill"></i></button><button type="button" class="btn btn-primary m-2"><i class="bi bi-pen"></i></button><button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button></i></td>
+                <td class="align-middle">{{$departamento->id}}</td>
+                <td class="align-middle">{{$departamento->nome}}</td>
+                <td class="align-middle"><button type="button" class="btn btn-success m-2"><i class="bi bi-person-fill"></i></button><button type="button" class="btn btn-primary m-2"><i class="bi bi-pen"></i></button><button type="button" class="btn btn-danger"><i class="bi bi-trash"></i></button></i></td>
             </tr>
             @endforeach
         </tbody>
