@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 
 class DepartamentoController extends Controller
 {
-    public function index()
+    public function index(request $request)
     {
-        $departamentos = departamento::all();
-        return view('departamentos.index', compact('departamentos'));
+        $departamentos = departamento::where('nome', 'like', '%' .$request->buscaDepartamentos.'%')->orderBy('nome', 'asc')->get();
+        $totalDepartamentos = departamento::all()->count();
+    return view('departamentos.index', compact('departamentos', 'totalDepartamentos'));
     }
 
     public function create()

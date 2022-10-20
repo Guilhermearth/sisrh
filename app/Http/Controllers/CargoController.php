@@ -7,10 +7,11 @@ use Illuminate\Http\Request;
 
 class CargoController extends Controller
 {
-    public function index()
+    public function index(request $request)
     {
-        $cargos = Cargo::all();
-        return view('cargos/index', compact('cargos'));
+        $cargos = Cargo::where('descricao', 'like', '%' .$request->buscaCargo.'%')->orderBy('descricao', 'asc')->get();
+        $totalCargos = Cargo::all()->count();
+        return view('cargos/index', compact('cargos', 'totalCargos'));
     }
 
     public function create()
