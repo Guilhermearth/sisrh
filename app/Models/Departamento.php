@@ -7,5 +7,18 @@ use Illuminate\Database\Eloquent\Model;
 
 class departamento extends Model
 {
-    use HasFactory;
+    public function user()
+    {
+        return $this->belongsTo(User::class, 'id_user');
+    }
+
+    public function departamento()
+    {
+        return $this->belongsTo(Departamento::class, 'id_departamento');
+    }
+    
+    public function cargo()
+    {
+        return $this->belongsTo(Cargo::class, 'id_cargo');
+    }
 }

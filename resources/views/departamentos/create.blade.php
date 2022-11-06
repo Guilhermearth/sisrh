@@ -4,18 +4,19 @@
 
 @section('conteudo')
 
-    <div class="bg-light p-5">
+    <div class="bg-light p-5 container-fluid shadow">
     <h1>Cadastrar Departamento</h1>
     
-    <form action="row">
-    
+    <form method="POST" action="{{ route('departamento.store') }}" enctype="multipart/form-data">
+        @csrf
+        <input type="hidden" value="1" name="id_user">
         <div class="form-group">
-            <label>Nome</label>
-            <input type="text" class="form-control">
+            <label for="nome">Nome</label>
+            <input type="text" class="form-control" id="nome" name="nome" value="" required>
         </div>
 
-            <button type="button" class="btn btn-primary m-2">Cadastrar</button>
-            <button type="button" class="btn btn-danger m-2">Cancelar</button>
+            <button type="submit" class="btn btn-primary m-2">Cadastrar</button>
+            <a href="{{ route('departamentos.index') }}"> <button type="button" class="btn btn-danger">Cancelar</button></a>
     </form>
     </div>
 @endsection

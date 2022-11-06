@@ -18,4 +18,13 @@ class CargoController extends Controller
     {
         return view('cargos/create');
     }
+
+    public function store(Request $request){
+
+        $cargos = new Cargo;
+        $cargos->descricao = $request->descricao;
+        $cargos->save();
+
+        return redirect()->route('cargos.index')->with('sucesso', 'Cargo cadastrado com sucesso');
+    }
 }
