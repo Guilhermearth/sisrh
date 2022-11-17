@@ -13,10 +13,8 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('cargos_tables', function (Blueprint $table) {
-            $table->id();
-            $table->string('descricao');
-            $table->timestamps();
+        Schema::table('users', function (Blueprint $table) {
+            $table->enum('tipo', ['simples', 'admin'])->after('password');
         });
     }
 
@@ -27,6 +25,8 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('cargos_tables');
+        Schema::table('users', function (Blueprint $table) {
+            $table->dropColumn('tipo');
+        });
     }
 };

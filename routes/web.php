@@ -3,7 +3,11 @@
 use App\Http\Controllers\FuncionarioController;
 use App\Http\Controllers\DepartamentoController;
 use App\Http\Controllers\CargoController;
+use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\UsuarioController;
 use Illuminate\Support\Facades\Route;
+use SebastianBergmann\CodeCoverage\Report\Html\Dashboard;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,10 +19,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+// rota dashboard
+Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard.index');
 
-Route::get('/', function () {
-    return view('index');
-});
+// rota login
+Route::get('/', [LoginController::class, 'index'])->name('login.index');
+Route::post('/auth', [LoginController::class, 'auth'])->name('login.auth');
+Route::get('/logout', [LoginController::class, 'logout'])->name('login.logout');
 
 //  ROTAS PARA VIEWS DE FUNCIONÁRIO
 
@@ -36,3 +43,7 @@ Route::post('/cargos', [CargoController::class, 'store'])->name('cargos.store');
 Route::get('/departamentos', [DepartamentoController::class, 'index'])->name('departamentos.index');
 Route::get('/departamentos/create', [DepartamentoController::class, 'create'])->name('departamentos.create');
 Route::post('/departamentos', [DepartamentoController::class, 'store'])->name('departamento.store');
+
+Route::get('/usuarios', [UsuarioController::class, 'index'])->name('usuarios.index');
+Route::get('/usuarios/create', [UsuarioController::class, 'create'])->name('usuarios.create');
+Route::post('/usuarios', [UsuarioController::class, 'store'])->name('usuarios.store');
